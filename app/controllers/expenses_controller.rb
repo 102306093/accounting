@@ -4,6 +4,10 @@ class ExpensesController < ApplicationController
 
   # GET /expenses
   # GET /expenses.json
+  def dashboard
+      @data=Expense.dashboard(current_user.id)
+  end
+
   def index
     @expenses = Expense.where(user: current_user).last(5)
   end
